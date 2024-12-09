@@ -1,17 +1,16 @@
 ﻿using ECom.SharedLibrary.Responses;
-using OrderApi.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using OrderApi.Application.DTOs;
 using OrderApi.Application.DTOs.Conversions;
 using OrderApi.Application.Interfaces;
 using OrderApi.Application.Services;
-using OrderApi.Domain.Entities;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OrderApi.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrdersController(IOrder orderInterface, IOrderService orderService) : ControllerBase
     {
         [HttpGet]
